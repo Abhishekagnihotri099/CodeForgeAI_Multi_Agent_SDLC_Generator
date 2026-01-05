@@ -1,4 +1,5 @@
 from autogen.agentchat import AssistantAgent
+import streamlit as st
 from dotenv import load_dotenv
 import os
 
@@ -63,12 +64,13 @@ coding_agent = AssistantAgent(
     llm_config={
         "config_list": [
             {
-                "model": os.getenv("MODEL"),
+                "model": st.secrets["MODEL"],
                 "api_type": "groq",
-                "api_key": os.getenv("GROQ_API_KEY"),
+                "api_key": st.secrets["GROQ_API_KEY"],
             }
         ],
         "temperature": 0.1,
         "max_tokens": 5000,
     },
 )
+
