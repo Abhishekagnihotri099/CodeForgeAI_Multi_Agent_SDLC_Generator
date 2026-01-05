@@ -1,9 +1,7 @@
 from autogen.agentchat import AssistantAgent
 import streamlit as st
-from dotenv import load_dotenv
 import os
 
-load_dotenv()
 
 SYSTEM_MESSAGE = """
 You are a Senior Python Backend Engineer.
@@ -73,4 +71,5 @@ coding_agent = AssistantAgent(
         "max_tokens": 5000,
     },
 )
+
 
