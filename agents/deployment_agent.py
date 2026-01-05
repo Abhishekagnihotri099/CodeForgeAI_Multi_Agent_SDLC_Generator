@@ -1,9 +1,8 @@
 # Deployment Agent
 from autogen.agentchat import AssistantAgent
-from dotenv import load_dotenv
+import streamlit as st
 import os
 
-load_dotenv()
 
 SYSTEM_MESSAGE = """
 You are a DevOps Engineer.
@@ -54,12 +53,13 @@ deployment_agent = AssistantAgent(
     llm_config={
         "config_list": [
             {
-                "model": os.getenv("MODEL_BASIC"),
+                "model": st.secrets["MODEL_BASIC"],
                 "api_type": "groq",
-                "api_key": os.getenv("GROQ_API_KEY"),
+                "api_key": st.secrets["GROQ_API_KEY"],
             }
         ],
         "temperature": 0.0,
         "max_tokens": 2000,
     },
 )
+
