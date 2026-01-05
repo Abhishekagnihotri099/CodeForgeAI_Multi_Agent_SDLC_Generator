@@ -1,5 +1,5 @@
 # Documentation Agent
-from autogen.agentchat import AssistantAgent
+from autogen_agentchat import AssistantAgent
 import streamlit as st
 
 SYSTEM_MESSAGE = """
@@ -59,4 +59,5 @@ documentation_agent = AssistantAgent(
         "max_tokens": 2000,
     },
 )
+
 
