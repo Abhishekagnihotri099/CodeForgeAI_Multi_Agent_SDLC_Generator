@@ -1,8 +1,5 @@
 from autogen.agentchat import AssistantAgent
-from dotenv import load_dotenv
-import os
-
-load_dotenv()
+import streamlit as st
 
 SYSTEM_MESSAGE = """
 You are a Senior Code Reviewer acting as a mentor, not a gatekeeper.
@@ -65,12 +62,13 @@ review_agent = AssistantAgent(
     llm_config={
         "config_list": [
             {
-                "model": os.getenv("MODEL"),
+                "model": st.secrets["MODEL"],
                 "api_type": "groq",
-                "api_key": os.getenv("GROQ_API_KEY"),
+                "api_key": st.secrets["GROQ_API_KEY"],
             }
         ],
         "temperature": 0.0,
         "max_tokens": 2000,
     },
 )
+
